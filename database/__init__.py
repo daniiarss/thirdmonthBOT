@@ -1,7 +1,7 @@
-import sqlite3
+import aiosqlite
 
 def add_user(user_id, username, first_name, last_name):
-    connection = sqlite3.connect('bot.db')
+    connection = aiosqlite.connect('bot.db')
     cursor = connection.cursor()
     cursor.execute('''
         INSERT INTO users (user_id, username, first_name, last_name)
@@ -11,7 +11,7 @@ def add_user(user_id, username, first_name, last_name):
     connection.close()
 
 def user_exists(user_id):
-    connection = sqlite3.connect('bot.db')
+    connection = aiosqlite.connect('bot.db')
     cursor = connection.cursor()
     cursor.execute('SELECT 1 FROM users WHERE user_id = ?', (user_id,))
     exists = cursor.fetchone() is not None
