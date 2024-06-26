@@ -8,3 +8,4 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=storage)
 DATABASE_URL = config('DATABASE_URL', default="sqlite:///profiles.db")
 MEDIA_PATH = config('MEDIA')
+        
